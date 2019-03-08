@@ -1,0 +1,24 @@
+- name: Ensure packages are installed
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ packages }}"
+- name: Ensure services are started
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items: "{{ services_start }}"
+- name: Update httpd.conf
+  copy:
+    src: files/httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+  notify: restart httpd
+- name: Update resolv.conf
+  template:
+    src: templates/resolv.conf.j2
+    dest: /etc/resolv.conf
+- name: Update Sudoers
+  blockinfile:
+    path: /etc/sudoers
+    block: "{{ lookup('template', 'templates/sudoblock.j2') }}"

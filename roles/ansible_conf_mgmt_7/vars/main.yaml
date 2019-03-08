@@ -1,0 +1,5 @@
+packages:
+  - httpd
+  - ksh
+services_start:
+  - httpd

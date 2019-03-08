@@ -1,0 +1,8 @@
+[my_hosts]
+localhost
+
+[my_hosts:vars]
+sudo_user = sunil
+sudo_group = simplylearn
+dns01=8.8.8.8
+
