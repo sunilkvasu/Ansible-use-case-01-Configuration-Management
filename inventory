@@ -1,5 +1,5 @@
 [my_hosts]
-localhost
+client1
 
 [my_hosts:vars]
 sudo_user = sunil
