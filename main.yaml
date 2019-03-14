@@ -1,4 +1,4 @@
 - hosts: my_hosts
   roles:
-  - {role: ansible_conf_mgmt_7, when ansible_distribution == "CentOS" and ansible_distribution_major_version == "7" }
+  - {role: ansible_conf_mgmt_7, when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7" }
 
